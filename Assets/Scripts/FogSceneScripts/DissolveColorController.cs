@@ -20,5 +20,6 @@ public class DissolveColorController : MonoBehaviour
         float grayscale = 1.0f - value; // inverting: 0 = black, 1 = white
         Color grayColor = new Color(grayscale, grayscale, grayscale, 1f);
         dissolveMaterial.SetColor("_DissolveColor", grayColor);
+        Debug.Log("changing the dissolvematColor to: " + grayColor); 
     }
 }

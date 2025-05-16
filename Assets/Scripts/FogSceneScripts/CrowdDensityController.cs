@@ -29,7 +29,7 @@ public class CrowdDensityController : MonoBehaviour
         spawnDissolveShader = GetComponent<SpawnDissolveShader>();
         if(spawnDissolveShader!=null)
         {
-            spawnDissolveShader.spawnInterval = maxValue-value; 
+            spawnDissolveShader.spawnInterval = maxValue-value + 1; 
         }
     }
 }
