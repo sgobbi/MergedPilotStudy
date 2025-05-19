@@ -4,13 +4,11 @@ using System.IO;
 
 public class VRTracker : MonoBehaviour
 {
-    // Ajout du nom de l'utilisateur
     public string userName = "Utilisateur";
 
-    // Objets de remplacement (placeholders)
-    public Transform headObject;  // Remplacer par votre caméra VR une fois la configuration terminée
-    public Transform leftHandObject;  // Remplacer par le contrôleur gauche VR
-    public Transform rightHandObject;  // Remplacer par le contrôleur droit VR
+    public Transform headObject;
+    public Transform leftHandObject;
+    public Transform rightHandObject;
 
     private Vector3 lastHeadPos;
     private Vector3 lastLeftHandPos;
@@ -18,13 +16,15 @@ public class VRTracker : MonoBehaviour
 
     private List<MovementData> movementDataList = new List<MovementData>();
 
-    // Pour ajuster la fréquence d'enregistrement (en secondes)
-    public float recordInterval = 0.1f;  // Enregistrer les données toutes les 0.1 secondes
+    public float recordInterval = 0.1f;
     private float lastRecordTime = 0f;
+
+    private string timestamp;
 
     void Start()
     {
-        // Initialisation des dernières positions
+        timestamp = System.DateTime.Now.ToString("yyyyMMdd_HHmmss");
+
         lastHeadPos = headObject.position;
         lastLeftHandPos = leftHandObject.position;
         lastRightHandPos = rightHandObject.position;
@@ -32,28 +32,27 @@ public class VRTracker : MonoBehaviour
 
     void Update()
     {
-        // Vérifier si c'est le bon moment pour enregistrer
+        float delta = Time.deltaTime;
+        if (delta <= Mathf.Epsilon) return;
+
         if (Time.time - lastRecordTime >= recordInterval)
         {
-            // Récupérer les positions des objets (placeholders pour le moment)
             Vector3 headPosition = headObject.position;
             Vector3 leftHandPosition = leftHandObject.position;
             Vector3 rightHandPosition = rightHandObject.position;
 
-            // Calcul de la vitesse et de l'accélération
-            Vector3 headVelocity = (headPosition - lastHeadPos) / Time.deltaTime;
-            Vector3 leftHandVelocity = (leftHandPosition - lastLeftHandPos) / Time.deltaTime;
-            Vector3 rightHandVelocity = (rightHandPosition - lastRightHandPos) / Time.deltaTime;
+            Vector3 headVelocity = (headPosition - lastHeadPos) / delta;
+            Vector3 leftHandVelocity = (leftHandPosition - lastLeftHandPos) / delta;
+            Vector3 rightHandVelocity = (rightHandPosition - lastRightHandPos) / delta;
 
-            Vector3 headAcceleration = (headVelocity - (lastHeadPos - headObject.position) / Time.deltaTime) / Time.deltaTime;
-            Vector3 leftHandAcceleration = (leftHandVelocity - (lastLeftHandPos - leftHandObject.position) / Time.deltaTime) / Time.deltaTime;
-            Vector3 rightHandAcceleration = (rightHandVelocity - (lastRightHandPos - rightHandObject.position) / Time.deltaTime) / Time.deltaTime;
+            Vector3 headAcceleration = (headVelocity - (lastHeadPos - headPosition) / delta) / delta;
+            Vector3 leftHandAcceleration = (leftHandVelocity - (lastLeftHandPos - leftHandPosition) / delta) / delta;
+            Vector3 rightHandAcceleration = (rightHandVelocity - (lastRightHandPos - rightHandPosition) / delta) / delta;
 
-            // Ajouter les données à la liste avec un timestamp ajusté
             movementDataList.Add(new MovementData
             {
-                userName = userName,  // Ajouter le nom de l'utilisateur
-                timestamp = Time.time,  // Utiliser Time.time comme timestamp
+                userName = userName,
+                timestamp = Time.time,
                 headPosition = headPosition,
                 leftHandPosition = leftHandPosition,
                 rightHandPosition = rightHandPosition,
@@ -65,43 +64,33 @@ public class VRTracker : MonoBehaviour
                 rightHandAcceleration = rightHandAcceleration
             });
 
-            // Sauvegarder les anciennes positions pour les calculs futurs
             lastHeadPos = headPosition;
             lastLeftHandPos = leftHandPosition;
             lastRightHandPos = rightHandPosition;
 
-            // Mettre à jour le dernier enregistrement de données
             lastRecordTime = Time.time;
         }
     }
 
     void OnApplicationQuit()
     {
-        // Définir le chemin du dossier où vous voulez enregistrer le fichier JSON
         string folderPath = @"E:\Monologue_Koltes\Assets\Enregistrements\EnregistrementsHH";
-
-        // Vérifier si le dossier existe et le créer s'il n'existe pas
         if (!Directory.Exists(folderPath))
-        {
             Directory.CreateDirectory(folderPath);
-        }
 
-        // Définir le chemin complet du fichier
-        string filePath = Path.Combine(folderPath, $"{userName}_movementData.json");
+        string fileName = $"{userName}_movementData_{timestamp}.json";
+        string filePath = Path.Combine(folderPath, fileName);
 
-        // Convertir la liste en format JSON
         string json = JsonUtility.ToJson(new MovementDataList { data = movementDataList }, true);
-
-        // Sauvegarder dans le fichier
         File.WriteAllText(filePath, json);
 
-        Debug.Log($"Données enregistrées dans : {filePath}");
+        Debug.Log($"Données de mouvement enregistrées dans : {filePath}");
     }
 
     [System.Serializable]
     public class MovementData
     {
-        public string userName;  // Nom de l'utilisateur
+        public string userName;
         public float timestamp;
         public Vector3 headPosition;
         public Vector3 leftHandPosition;
