@@ -2,21 +2,45 @@ using UnityEngine;
 
 public class MiniatureMapper : MonoBehaviour
 {
-    [Tooltip("Échelle entre la maquette et le monde réel. Exemple : 0.1 pour une maquette 1:10")]
-    public float scaleFactor = 0.1f;
-
     [Tooltip("Transform du point d'origine du monde réel")]
     public Transform realWorldOrigin;
 
+    // Plus besoin de le définir manuellement
+    private float scaleFactor;
+
+    void Awake()
+    {
+        ComputeScaleFactor();
+    }
+
+    void ComputeScaleFactor()
+    {
+        // On suppose que l’échelle est uniforme (même sur X, Y, Z)
+        float miniatureScale = transform.lossyScale.x;
+        float worldScale = realWorldOrigin.lossyScale.x;
+
+        if (worldScale == 0)
+        {
+            Debug.LogWarning("Le scale du monde réel est à 0 !");
+            scaleFactor = 1f;
+        }
+        else
+        {
+            scaleFactor = miniatureScale / worldScale;
+        }
+
+        Debug.Log($"[MiniatureMapper] ScaleFactor automatique : {scaleFactor}");
+    }
+
     public Vector3 ConvertMiniatureToWorld(Vector3 localMiniaturePos)
     {
-        // Convertir la position locale de l’objet dans la maquette en position monde
+        // Position monde de l’objet miniature
         Vector3 miniatureWorldPos = transform.TransformPoint(localMiniaturePos);
 
-        // Calculer la position relative à la racine miniature
+        // Offset depuis le centre de la maquette
         Vector3 offset = miniatureWorldPos - transform.position;
 
-        // Appliquer l’échelle
+        // Application de l’échelle
         Vector3 scaledOffset = offset / scaleFactor;
 
         // Position finale dans le monde réel
@@ -25,7 +49,6 @@ public class MiniatureMapper : MonoBehaviour
 
     public Quaternion ConvertMiniatureRotation(Quaternion localMiniatureRot)
     {
-        // Rotation du monde réel = rotation d'origine + (rotation locale dans la maquette)
         return realWorldOrigin.rotation * localMiniatureRot;
     }
 }
