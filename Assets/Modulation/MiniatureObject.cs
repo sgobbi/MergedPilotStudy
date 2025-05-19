@@ -37,8 +37,9 @@ public class MiniatureObject : MonoBehaviour
     {
         if (mapper == null) return;
 
-        Vector3 localPos = transform.localPosition;
-        Quaternion localRot = transform.localRotation;
+        // Calculer la position relative à la maquette (même si pas enfant)
+        Vector3 localPos = mapper.transform.InverseTransformPoint(transform.position);
+        Quaternion localRot = Quaternion.Inverse(mapper.transform.rotation) * transform.rotation;
 
         realInstance.transform.position = mapper.ConvertMiniatureToWorld(localPos);
         realInstance.transform.rotation = mapper.ConvertMiniatureRotation(localRot);
