@@ -99,6 +99,15 @@ public partial class @XRInputSystem: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""DeleteObject"",
+                    ""type"": ""Button"",
+                    ""id"": ""edb455da-85e0-4005-af3f-63dbe57732c9"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -112,6 +121,28 @@ public partial class @XRInputSystem: IInputActionCollection2, IDisposable
                     ""action"": ""ToggleHandMenu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""da669013-2ceb-439b-9e6c-1e965940455d"",
+                    ""path"": ""<ViveController>{RightHand}/gripPressed"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DeleteObject"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7fa55b3a-902a-4460-a17a-5fdfdb93c578"",
+                    ""path"": ""<XRController>{RightHand}/primaryButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DeleteObject"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -121,6 +152,7 @@ public partial class @XRInputSystem: IInputActionCollection2, IDisposable
         // XRController
         m_XRController = asset.FindActionMap("XRController", throwIfNotFound: true);
         m_XRController_ToggleHandMenu = m_XRController.FindAction("ToggleHandMenu", throwIfNotFound: true);
+        m_XRController_DeleteObject = m_XRController.FindAction("DeleteObject", throwIfNotFound: true);
     }
 
     ~@XRInputSystem()
@@ -202,6 +234,7 @@ public partial class @XRInputSystem: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_XRController;
     private List<IXRControllerActions> m_XRControllerActionsCallbackInterfaces = new List<IXRControllerActions>();
     private readonly InputAction m_XRController_ToggleHandMenu;
+    private readonly InputAction m_XRController_DeleteObject;
     /// <summary>
     /// Provides access to input actions defined in input action map "XRController".
     /// </summary>
@@ -217,6 +250,10 @@ public partial class @XRInputSystem: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "XRController/ToggleHandMenu".
         /// </summary>
         public InputAction @ToggleHandMenu => m_Wrapper.m_XRController_ToggleHandMenu;
+        /// <summary>
+        /// Provides access to the underlying input action "XRController/DeleteObject".
+        /// </summary>
+        public InputAction @DeleteObject => m_Wrapper.m_XRController_DeleteObject;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -246,6 +283,9 @@ public partial class @XRInputSystem: IInputActionCollection2, IDisposable
             @ToggleHandMenu.started += instance.OnToggleHandMenu;
             @ToggleHandMenu.performed += instance.OnToggleHandMenu;
             @ToggleHandMenu.canceled += instance.OnToggleHandMenu;
+            @DeleteObject.started += instance.OnDeleteObject;
+            @DeleteObject.performed += instance.OnDeleteObject;
+            @DeleteObject.canceled += instance.OnDeleteObject;
         }
 
         /// <summary>
@@ -260,6 +300,9 @@ public partial class @XRInputSystem: IInputActionCollection2, IDisposable
             @ToggleHandMenu.started -= instance.OnToggleHandMenu;
             @ToggleHandMenu.performed -= instance.OnToggleHandMenu;
             @ToggleHandMenu.canceled -= instance.OnToggleHandMenu;
+            @DeleteObject.started -= instance.OnDeleteObject;
+            @DeleteObject.performed -= instance.OnDeleteObject;
+            @DeleteObject.canceled -= instance.OnDeleteObject;
         }
 
         /// <summary>
@@ -307,5 +350,12 @@ public partial class @XRInputSystem: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnToggleHandMenu(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "DeleteObject" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnDeleteObject(InputAction.CallbackContext context);
     }
 }

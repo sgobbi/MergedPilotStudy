@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1619083007641013784}
   - component: {fileID: -6063604644915709176}
   - component: {fileID: -6397875131569174782}
+  - component: {fileID: -4404270543005229670}
   m_Layer: 0
   m_Name: Bench 2 1
   m_TagString: Untagged
@@ -259,3 +260,16 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 0
+--- !u!114 &-4404270543005229670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8106284539948314308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e2db4f0d87c19d43a136b835f8206dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deleteAction: {fileID: 7476794779922474381, guid: 24c2a7c92890ddb449a9571086c65bb6, type: 3}
