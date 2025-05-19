@@ -10,8 +10,8 @@ public class QuestionManager : MonoBehaviour
     public class Question
     {
         public string questionText;
-        public string texteOui;
-        public string texteNon;
+        public string libelleMin;
+        public string libelleMax;
     }
 
     [System.Serializable]
@@ -19,14 +19,14 @@ public class QuestionManager : MonoBehaviour
     {
         public string utilisateur;
         public string question;
-        public string reponse;
+        public int valeur;  // 1 à 8
         public string horodatage;
     }
 
     [Header("Références UI")]
     public TextMeshProUGUI questionTextUI;
-    public TextMeshProUGUI texteOuiUI;
-    public TextMeshProUGUI texteNonUI;
+    public TextMeshProUGUI libelleMinUI;
+    public TextMeshProUGUI libelleMaxUI;
 
     [Header("Paramètres du questionnaire")]
     public string nomUtilisateur = "Participant";
@@ -36,7 +36,7 @@ public class QuestionManager : MonoBehaviour
     private bool isWaiting = false;
     private List<AnswerData> answers = new List<AnswerData>();
 
-    private string outputDirectory = @"E:\Monologue_Koltes\Assets\Questions\Réponses\";
+    private string outputDirectory = @"E:\Monologue_Koltes\Assets\Questions\";
     private string outputFilePath;
 
     void Start()
@@ -48,17 +48,15 @@ public class QuestionManager : MonoBehaviour
         ShowQuestion();
     }
 
-    public void OnAnswer(bool isYes)
+    public void OnAnswer(int valeur)
     {
-        if (isWaiting) return;
-
-        string reponseText = isYes ? "Oui" : "Non";
+        if (isWaiting || valeur < 1 || valeur > 8) return;
 
         var data = new AnswerData
         {
             utilisateur = nomUtilisateur,
             question = questions[currentQuestionIndex].questionText,
-            reponse = reponseText,
+            valeur = valeur,
             horodatage = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
         };
         answers.Add(data);
@@ -72,8 +70,8 @@ public class QuestionManager : MonoBehaviour
         else
         {
             questionTextUI.text = "Merci pour vos réponses !";
-            texteOuiUI.text = "";
-            texteNonUI.text = "";
+            libelleMinUI.text = "";
+            libelleMaxUI.text = "";
             SaveAnswersToFile();
         }
     }
@@ -84,15 +82,22 @@ public class QuestionManager : MonoBehaviour
         {
             var q = questions[currentQuestionIndex];
             questionTextUI.text = q.questionText;
-            texteOuiUI.text = q.texteOui;
-            texteNonUI.text = q.texteNon;
+            libelleMinUI.text = q.libelleMin;
+            libelleMaxUI.text = q.libelleMax;
         }
     }
 
     System.Collections.IEnumerator NextQuestionDelay()
     {
         isWaiting = true;
-        yield return new WaitForSeconds(1f);
+
+        // Masquer les textes pour créer une pause visuelle
+        questionTextUI.text = "";
+        libelleMinUI.text = "";
+        libelleMaxUI.text = "";
+
+        yield return new WaitForSeconds(1.5f); // Durée de la pause
+
         ShowQuestion();
         isWaiting = false;
     }

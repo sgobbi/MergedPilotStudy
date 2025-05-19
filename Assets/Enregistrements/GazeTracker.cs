@@ -1,23 +1,29 @@
-using UnityEngine;
+Ôªøusing UnityEngine;
 using System.Collections.Generic;
 using System.IO;
 
 public class GazeTracker : MonoBehaviour
 {
-    public Camera playerCamera; // La camÈra VR (reprÈsentant la tÍte)
-    public float gazeThreshold = 1f; // Le temps minimum (en secondes) pour considÈrer qu'un objet a ÈtÈ regardÈ pendant un certain temps
+    public Camera playerCamera;
+    public float gazeThreshold = 1f;
     public string userName = "Utilisateur";
+
+    // üè† Liste d'exclusion par noms d'objets
+    public List<string> excludedObjectNames = new List<string> { "Maison", "Mur", "Sol" };
 
     private RaycastHit hitInfo;
     private float gazeTime = 0f;
     private GameObject currentGazedObject = null;
     private List<GazeData> gazeDataList = new List<GazeData>();
 
-    private LineRenderer lineRenderer;  // Le LineRenderer pour afficher le rayon
+    private LineRenderer lineRenderer;
+
+    private string timestamp;
 
     void Start()
     {
-        // Ajouter un LineRenderer ‡ cet objet pour dessiner le rayon
+        timestamp = System.DateTime.Now.ToString("yyyyMMdd_HHmmss");
+
         lineRenderer = gameObject.AddComponent<LineRenderer>();
         lineRenderer.startWidth = 0.05f;
         lineRenderer.endWidth = 0.05f;
@@ -28,43 +34,32 @@ public class GazeTracker : MonoBehaviour
 
     void Update()
     {
-        // CrÈer un rayon partant du centre de la camÈra (la tÍte du joueur)
         Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
-
-        // Mettre ‡ jour la position du LineRenderer pour afficher le rayon
         lineRenderer.SetPosition(0, playerCamera.transform.position);
 
-        if (Physics.Raycast(ray, out hitInfo))  // Si le rayon touche un objet
+        if (Physics.Raycast(ray, out hitInfo))
         {
             GameObject hitObject = hitInfo.collider.gameObject;
 
-            // Si le rayon touche un objet diffÈrent de l'objet prÈcÈdent
             if (currentGazedObject != hitObject)
             {
-                // Si un objet Ètait prÈcÈdemment regardÈ, on enregistre sa durÈe
-                if (currentGazedObject != null && gazeTime >= gazeThreshold)
+                if (currentGazedObject != null && gazeTime >= gazeThreshold && !excludedObjectNames.Contains(currentGazedObject.name))
                 {
                     RecordGazeData(currentGazedObject, gazeTime);
                 }
 
-                // RÈinitialiser le temps de regard pour le nouvel objet
                 currentGazedObject = hitObject;
                 gazeTime = 0f;
             }
 
-            // Mettre ‡ jour la position du LineRenderer (fin du rayon)
-            lineRenderer.SetPosition(1, hitInfo.point);  // Positionner la fin du rayon au point d'impact
-
-            // IncrÈmenter la durÈe de regard
+            lineRenderer.SetPosition(1, hitInfo.point);
             gazeTime += Time.deltaTime;
         }
         else
         {
-            // Si aucun objet n'est touchÈ, afficher un rayon jusqu'‡ 10 unitÈs de distance
-            lineRenderer.SetPosition(1, ray.origin + ray.direction * 10f);  // Dessiner jusqu'‡ 10 unitÈs
+            lineRenderer.SetPosition(1, ray.origin + ray.direction * 10f);
 
-            // Si aucun objet n'est touchÈ, on rÈinitialise les variables
-            if (currentGazedObject != null && gazeTime >= gazeThreshold)
+            if (currentGazedObject != null && gazeTime >= gazeThreshold && !excludedObjectNames.Contains(currentGazedObject.name))
             {
                 RecordGazeData(currentGazedObject, gazeTime);
             }
@@ -74,7 +69,6 @@ public class GazeTracker : MonoBehaviour
         }
     }
 
-    // Enregistre les donnÈes de l'objet regardÈ dans une liste
     private void RecordGazeData(GameObject gazedObject, float duration)
     {
         gazeDataList.Add(new GazeData
@@ -89,25 +83,17 @@ public class GazeTracker : MonoBehaviour
 
     void OnApplicationQuit()
     {
-        // DÈfinir le chemin du dossier pour enregistrer les donnÈes JSON
         string folderPath = @"E:\Monologue_Koltes\Assets\Enregistrements\EnregistrementsHH";
-
-        // CrÈer le dossier s'il n'existe pas dÈj‡
         if (!Directory.Exists(folderPath))
-        {
             Directory.CreateDirectory(folderPath);
-        }
 
-        // DÈfinir le chemin du fichier de donnÈes de regard
-        string filePath = Path.Combine(folderPath, $"{userName}_gazeData.json");
+        string fileName = $"{userName}_gazeData_{timestamp}.json";
+        string filePath = Path.Combine(folderPath, fileName);
 
-        // Convertir la liste de donnÈes en JSON
         string json = JsonUtility.ToJson(new GazeDataList { data = gazeDataList }, true);
-
-        // Sauvegarder les donnÈes dans le fichier
         File.WriteAllText(filePath, json);
 
-        Debug.Log($"DonnÈes de regard enregistrÈes dans : {filePath}");
+        Debug.Log($"Donn√©es de regard enregistr√©es dans : {filePath}");
     }
 
     [System.Serializable]
