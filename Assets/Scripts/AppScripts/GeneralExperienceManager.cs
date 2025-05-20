@@ -143,6 +143,9 @@ public class GeneralExperienceManager : MonoBehaviour
 
         Debug.Log($"Logged event '{label}' at {elapsedSeconds} seconds.");
 
+        GazeTracker.Instance.SaveGazeData(label);
+        VRTracker.Instance.SaveVRTrackerData(label); 
+
         SaveEventsToFile();
         stopwatch.Restart(); // start new timing cycle
     }
@@ -152,6 +155,7 @@ public class GeneralExperienceManager : MonoBehaviour
         string json = JsonUtility.ToJson(new TimedEventListWrapper { events = timedEvents }, true);
         File.WriteAllText(ExplorationTimesFilePath, json);
         Debug.Log($"Timer log saved at {ExplorationTimesFilePath}");
+
     }
 
     [System.Serializable]

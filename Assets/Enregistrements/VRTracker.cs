@@ -4,6 +4,7 @@ using System.IO;
 
 public class VRTracker : MonoBehaviour
 {
+    public static VRTracker Instance { get; private set; }
     public string userName = "Utilisateur";
 
     public Transform headObject;
@@ -21,6 +22,18 @@ public class VRTracker : MonoBehaviour
 
     private string timestamp;
 
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(this.gameObject);
+    }
     void Start()
     {
         timestamp = System.DateTime.Now.ToString("yyyyMMdd_HHmmss");
@@ -32,59 +45,66 @@ public class VRTracker : MonoBehaviour
 
     void Update()
     {
-        float delta = Time.deltaTime;
-        if (delta <= Mathf.Epsilon) return;
-
-        if (Time.time - lastRecordTime >= recordInterval)
+        if (headObject != null && leftHandObject != null && rightHandObject != null)
         {
-            Vector3 headPosition = headObject.position;
-            Vector3 leftHandPosition = leftHandObject.position;
-            Vector3 rightHandPosition = rightHandObject.position;
+            float delta = Time.deltaTime;
+            if (delta <= Mathf.Epsilon) return;
 
-            Vector3 headVelocity = (headPosition - lastHeadPos) / delta;
-            Vector3 leftHandVelocity = (leftHandPosition - lastLeftHandPos) / delta;
-            Vector3 rightHandVelocity = (rightHandPosition - lastRightHandPos) / delta;
-
-            Vector3 headAcceleration = (headVelocity - (lastHeadPos - headPosition) / delta) / delta;
-            Vector3 leftHandAcceleration = (leftHandVelocity - (lastLeftHandPos - leftHandPosition) / delta) / delta;
-            Vector3 rightHandAcceleration = (rightHandVelocity - (lastRightHandPos - rightHandPosition) / delta) / delta;
-
-            movementDataList.Add(new MovementData
+            if (Time.time - lastRecordTime >= recordInterval)
             {
-                userName = userName,
-                timestamp = Time.time,
-                headPosition = headPosition,
-                leftHandPosition = leftHandPosition,
-                rightHandPosition = rightHandPosition,
-                headVelocity = headVelocity,
-                leftHandVelocity = leftHandVelocity,
-                rightHandVelocity = rightHandVelocity,
-                headAcceleration = headAcceleration,
-                leftHandAcceleration = leftHandAcceleration,
-                rightHandAcceleration = rightHandAcceleration
-            });
+                Vector3 headPosition = headObject.position;
+                Vector3 leftHandPosition = leftHandObject.position;
+                Vector3 rightHandPosition = rightHandObject.position;
 
-            lastHeadPos = headPosition;
-            lastLeftHandPos = leftHandPosition;
-            lastRightHandPos = rightHandPosition;
+                Vector3 headVelocity = (headPosition - lastHeadPos) / delta;
+                Vector3 leftHandVelocity = (leftHandPosition - lastLeftHandPos) / delta;
+                Vector3 rightHandVelocity = (rightHandPosition - lastRightHandPos) / delta;
 
-            lastRecordTime = Time.time;
+                Vector3 headAcceleration = (headVelocity - (lastHeadPos - headPosition) / delta) / delta;
+                Vector3 leftHandAcceleration = (leftHandVelocity - (lastLeftHandPos - leftHandPosition) / delta) / delta;
+                Vector3 rightHandAcceleration = (rightHandVelocity - (lastRightHandPos - rightHandPosition) / delta) / delta;
+
+                movementDataList.Add(new MovementData
+                {
+                    userName = userName,
+                    timestamp = Time.time,
+                    headPosition = headPosition,
+                    leftHandPosition = leftHandPosition,
+                    rightHandPosition = rightHandPosition,
+                    headVelocity = headVelocity,
+                    leftHandVelocity = leftHandVelocity,
+                    rightHandVelocity = rightHandVelocity,
+                    headAcceleration = headAcceleration,
+                    leftHandAcceleration = leftHandAcceleration,
+                    rightHandAcceleration = rightHandAcceleration
+                });
+
+                lastHeadPos = headPosition;
+                lastLeftHandPos = leftHandPosition;
+                lastRightHandPos = rightHandPosition;
+
+                lastRecordTime = Time.time;
+            }
         }
+        
     }
 
     void OnApplicationQuit()
     {
-        string folderPath = @"E:\Monologue_Koltes\Assets\Enregistrements\EnregistrementsHH";
-        if (!Directory.Exists(folderPath))
-            Directory.CreateDirectory(folderPath);
+        SaveVRTrackerData("Last record before quit"); 
+    }
 
-        string fileName = $"{userName}_movementData_{timestamp}.json";
+    public void SaveVRTrackerData(string title)
+    {
+        string folderPath = GeneralExperienceManager.Instance.experienceFolderPath + "/VRPositionTrackerFiles";
+
+        string fileName = title + $"{userName}_movementData.json";
         string filePath = Path.Combine(folderPath, fileName);
 
-        string json = JsonUtility.ToJson(new MovementDataList { data = movementDataList }, true);
+        string json = JsonUtility.ToJson(new MovementDataList { label = title, data = movementDataList }, true);
         File.WriteAllText(filePath, json);
 
-        Debug.Log($"Données de mouvement enregistrées dans : {filePath}");
+        Debug.Log($"Donnï¿½es de mouvement enregistrï¿½es dans : {filePath}");
     }
 
     [System.Serializable]
@@ -106,6 +126,14 @@ public class VRTracker : MonoBehaviour
     [System.Serializable]
     public class MovementDataList
     {
+        public string label; 
         public List<MovementData> data;
+    }
+
+    public void ChangeTrackedObjects(Transform head, Transform left, Transform right)
+    {
+        headObject = head;
+        leftHandObject = left;
+        rightHandObject = right; 
     }
 }
