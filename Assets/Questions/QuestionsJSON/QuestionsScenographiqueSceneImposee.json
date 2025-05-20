@@ -1,19 +1,54 @@
 {
   "questions": [
-    {
-      "questionText": "Premiere question sceno imposee?",
-      "libelleMin": "Not at all",
-      "libelleMax": "Very immersive"
+   {
+      "questionText": "Comment s’est déroulé votre expérience en réalité virtuelle ?",
+      "libelleMin": "Pas bien",
+      "libelleMax": "Très bien"
     },
     {
-      "questionText": "Did you feel in control of the experience?",
-      "libelleMin": "No control",
-      "libelleMax": "Full control"
+      "questionText": "Est-ce que les aspects visuels de l’environnement vous ont donné l’illusion d’être dans un autre monde ? ?",
+      "libelleMin": "Pas du tout",
+      "libelleMax": "Complètement"
     },
     {
-      "questionText": "Was the scene emotionally engaging?",
-      "libelleMin": "Not at all",
-      "libelleMax": "Very much"
+      "questionText": "Est-ce que les dimensions de l’espace vous invitaient à l’exploration ?",
+      "libelleMin": "Pas du tout",
+      "libelleMax": "Complètement"
+    },
+    {
+      "questionText": "Est-ce que vous avez oubliez la présence du monde réel durant l’expérience ?",
+      "libelleMin": "Pas du tout",
+      "libelleMax": "Complètement"
+    },
+    {
+      "questionText": "Avez-vous eu l’impression de jouer dans la scène, plutôt que de la regarder de l’extérieur ?",
+      "libelleMin": "Pas du tout",
+      "libelleMax": "Complètement"
+    },
+     {
+      "questionText": "Est-ce que l’environnement vous a permis de trouver de nouveaux éléments de sens dans votre travail du texte ?",
+      "libelleMin": "Pas du tout",
+      "libelleMax": "Complètement"
+    },
+    {
+      "questionText": "Est-ce que l’environnement vous a influencé avant de jouer ?",
+      "libelleMin": "Pas du tout",
+      "libelleMax": "Complètement"
+    },
+    {
+      "questionText": "Est-ce que l’environnement vous a influencé pendant votre jeu ?",
+      "libelleMin": "Pas du tout",
+      "libelleMax": "Complètement"
+    },
+    {
+      "questionText": "L’environnement dans lequel vous étiez en immersion était-il parlant pour vous dans le contexte de la pièce ?",
+      "libelleMin": "Pas du tout",
+      "libelleMax": "Complètement"
+    },
+    {
+      "questionText": "Est-ce que l’absence d’un regard extérieur (public/metteur en scène) a affecté votre façon de jouer ?",
+      "libelleMin": "Pas du tout",
+      "libelleMax": "Complètement"
     }
   ]
 }
