@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "E:\\MergedPilotStudy\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{27F58851-B209-5020-ED62-E21B5512062C}|Assembly-CSharp.csproj|e:\\mergedpilotstudy\\assets\\scripts\\appscripts\\deleteobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{27F58851-B209-5020-ED62-E21B5512062C}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\appscripts\\deleteobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{27F58851-B209-5020-ED62-E21B5512062C}|Assembly-CSharp.csproj|e:\\mergedpilotstudy\\assets\\modulation\\miniaturemapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{27F58851-B209-5020-ED62-E21B5512062C}|Assembly-CSharp.csproj|solutionrelative:assets\\modulation\\miniaturemapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -19,6 +23,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "DeleteObject.cs",
+              "DocumentMoniker": "E:\\MergedPilotStudy\\Assets\\Scripts\\AppScripts\\DeleteObject.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\AppScripts\\DeleteObject.cs",
+              "ToolTip": "E:\\MergedPilotStudy\\Assets\\Scripts\\AppScripts\\DeleteObject.cs",
+              "RelativeToolTip": "Assets\\Scripts\\AppScripts\\DeleteObject.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T19:30:19.416Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "MiniatureMapper.cs",
               "DocumentMoniker": "E:\\MergedPilotStudy\\Assets\\Modulation\\MiniatureMapper.cs",
               "RelativeDocumentMoniker": "Assets\\Modulation\\MiniatureMapper.cs",
