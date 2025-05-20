@@ -132,7 +132,7 @@ public class QuestionManagerSalome : MonoBehaviour
         }
         else
         {
-            questionTextUI.text = "Merci pour vos r�ponses !";
+            questionTextUI.text = "Merci pour vos reponses !";
             libelleMinUI.text = "";
             libelleMaxUI.text = "";
             SaveAnswersToFile();
@@ -174,11 +174,11 @@ public class QuestionManagerSalome : MonoBehaviour
         {
             string json = JsonHelper.ToJson(answers.ToArray(), true);
             File.WriteAllText(outputFilePath, json);
-            Debug.Log("R�ponses enregistr�es dans : " + outputFilePath);
+            Debug.Log("Reponses enregistrees dans : " + outputFilePath);
         }
         catch (Exception ex)
         {
-            Debug.LogError("Erreur d'enregistrement des r�ponses : " + ex.Message);
+            Debug.LogError("Erreur d'enregistrement des reponses : " + ex.Message);
         }
     }
 
