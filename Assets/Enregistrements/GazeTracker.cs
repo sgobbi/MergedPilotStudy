@@ -43,11 +43,12 @@ public class GazeTracker : MonoBehaviour
         outputFolderPath = GeneralExperienceManager.Instance.experienceFolderPath + "/GazeTrackerFiles";
         userName = GeneralExperienceManager.Instance.userName;
         lineRenderer = gameObject.AddComponent<LineRenderer>();
+        //lineRenderer.enabled = false;
         lineRenderer.startWidth = 0.05f;
         lineRenderer.endWidth = 0.05f;
         lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
-        lineRenderer.startColor = Color.red;
-        lineRenderer.endColor = Color.red;
+        lineRenderer.startColor = new Color(1f, 0f, 0f, 0f); // Red with 0 alpha
+lineRenderer.endColor = new Color(1f, 0f, 0f, 0f);
     }
 
     void Update()
