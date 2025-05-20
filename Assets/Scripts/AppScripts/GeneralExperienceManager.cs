@@ -5,6 +5,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using Debug = UnityEngine.Debug;
+using System;
 
 /// <summary>
 /// Gestionnaire du déroulé de l'experience 
@@ -14,11 +18,22 @@ public class GeneralExperienceManager : MonoBehaviour
 {
 
     public static GeneralExperienceManager Instance { get; private set; }
+    private Stopwatch stopwatch;
+    private List<TimedEvent> timedEvents = new List<TimedEvent>();
     public string experienceSceneType;
     public string experienceControlType;
     public string userName;
     public string experienceFolderPath;
-    public string VRquestionsPath; 
+    public string VRquestionsPath;
+    private string ExplorationTimesFilePath;
+
+
+    [System.Serializable]
+    public class TimedEvent
+    {
+        public string label;
+        public float timeInSeconds;
+    }
 
     private void Awake()
     {
@@ -30,6 +45,7 @@ public class GeneralExperienceManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(this.gameObject);
+        stopwatch = new Stopwatch();
     }
 
     private Queue<string> sceneQueue = new Queue<string>();
@@ -42,6 +58,8 @@ public class GeneralExperienceManager : MonoBehaviour
         userName = EditorPrefs.GetString("ExperienceUserName", "Unknown");
         experienceFolderPath = EditorPrefs.GetString("ExperienceFolderPath", Application.dataPath);
 #endif
+
+
 
         Debug.Log("Starting experience for user: " + userName);
         Debug.Log("Config: " + experienceSceneType + "  " + experienceControlType);
@@ -68,7 +86,7 @@ public class GeneralExperienceManager : MonoBehaviour
         }
         else
         {
-           switch (experienceSceneType)
+            switch (experienceSceneType)
             {
                 case "Scenographique":
                     sceneQueue.Enqueue("SubwaySceneModifiable");
@@ -84,9 +102,14 @@ public class GeneralExperienceManager : MonoBehaviour
                     sceneQueue.Enqueue("Fog Scene");
                     sceneQueue.Enqueue("Questionnaire");
                     break;
-            } 
+            }
         }
-        
+
+        string timestamp = DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss");
+        string ExplorationTimesFolder = experienceFolderPath + "/ExplorationTimes";
+        ExplorationTimesFilePath = Path.Combine(ExplorationTimesFolder, $"TimerLog_{userName}_{timestamp}.json");
+
+        StartNewTimer();
 
         //LoadNextScene();
     }
@@ -104,5 +127,37 @@ public class GeneralExperienceManager : MonoBehaviour
             Debug.Log("Experience complete.");
         }
     }
+
+    public void StartNewTimer()
+    {
+        stopwatch.Restart();
+        Debug.Log("Timer started.");
+    }
+
+    public void LogEvent(string label)
+    {
+        stopwatch.Stop();
+        float elapsedSeconds = (float)stopwatch.Elapsed.TotalSeconds;
+        timedEvents.Add(new TimedEvent { label = label, timeInSeconds = elapsedSeconds });
+
+        Debug.Log($"Logged event '{label}' at {elapsedSeconds} seconds.");
+
+        SaveEventsToFile();
+        stopwatch.Restart(); // start new timing cycle
+    }
+
+    private void SaveEventsToFile()
+    {
+        string json = JsonUtility.ToJson(new TimedEventListWrapper { events = timedEvents }, true);
+        File.WriteAllText(ExplorationTimesFilePath, json);
+        Debug.Log($"Timer log saved at {ExplorationTimesFilePath}");
+    }
+
+    [System.Serializable]
+    private class TimedEventListWrapper
+    {
+        public List<TimedEvent> events;
+    }
+
 }
 

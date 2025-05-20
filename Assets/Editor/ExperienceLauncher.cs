@@ -19,6 +19,7 @@ public class ExperienceLauncher : EditorWindow
     private string GazeTrackerFolder = "";
     private string PositionTrackerFolder = "";
     private string QuestionAnswersFolder = ""; 
+    private string ExplorationTimesFolder = ""; 
 
 
     [MenuItem("Tools/Experience Launcher")]
@@ -78,7 +79,8 @@ public class ExperienceLauncher : EditorWindow
             GazeTrackerFolder = specificExperienceFolderPath + "/GazeTrackerFiles";
             PositionTrackerFolder = specificExperienceFolderPath + "/VRPositionTrackerFiles";
             QuestionAnswersFolder = specificExperienceFolderPath + "/QuestionnaireAnswers";
-            
+            ExplorationTimesFolder = specificExperienceFolderPath + "/ExplorationTimes";
+
 
             if (!Directory.Exists(GazeTrackerFolder))
             {
@@ -93,6 +95,10 @@ public class ExperienceLauncher : EditorWindow
             {
                 Directory.CreateDirectory(QuestionAnswersFolder);
             }
+            if (!Directory.Exists(ExplorationTimesFolder))
+            {
+                Directory.CreateDirectory(ExplorationTimesFolder);
+            }
 
             LaunchSelectedExperience();
 
@@ -106,6 +112,39 @@ public class ExperienceLauncher : EditorWindow
         }
 
         GUI.enabled = true; // reset to avoid affecting other GUI elements
+        
+        GUILayout.Space(10);
+        GUILayout.Label("Timer Controls", EditorStyles.boldLabel);
+
+        // Text field for the event label
+        EditorGUI.BeginDisabledGroup(!Application.isPlaying || GeneralExperienceManager.Instance == null);
+
+        EditorGUILayout.LabelField("Event Label:");
+        string eventLabel = EditorPrefs.GetString("TimerEventLabel", "My Event");
+        eventLabel = EditorGUILayout.TextField(eventLabel);
+        EditorPrefs.SetString("TimerEventLabel", eventLabel);
+
+        GUILayout.Space(5);
+
+        if (GUILayout.Button("Start New Timer"))
+        {
+            GeneralExperienceManager.Instance.StartNewTimer();
+        }
+
+        if (GUILayout.Button("Mark Event"))
+        {
+            if (!string.IsNullOrWhiteSpace(eventLabel))
+            {
+                GeneralExperienceManager.Instance.LogEvent(eventLabel);
+            }
+            else
+            {
+                Debug.LogWarning("Please enter a label for the event.");
+            }
+        }
+
+        EditorGUI.EndDisabledGroup();
+
     }
 
     private void LaunchSelectedExperience()
