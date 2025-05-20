@@ -14,6 +14,7 @@ public class FogGrayscaleControl : MonoBehaviour
             grayscaleSlider.onValueChanged.AddListener(UpdateFogColor);
             UpdateFogColor(grayscaleSlider.value); //set la valeur de base 
         }
+        Debug.Log("number of particle systems: " + fogParticleSystems.Length); 
     }
 
     void UpdateFogColor(float value)

@@ -26,10 +26,12 @@ public class CrowdDensityController : MonoBehaviour
     // Update is called once per frame
     void UpdateCrowdDensity(float value)
     {
+        Debug.Log("slider changed to value: " + value); 
         spawnDissolveShader = GetComponent<SpawnDissolveShader>();
-        if(spawnDissolveShader!=null)
+        if (spawnDissolveShader != null)
         {
-            spawnDissolveShader.spawnInterval = maxValue-value + 1; 
+            spawnDissolveShader.spawnInterval = maxValue - value + 0.1f;
+            Debug.Log("changed crowd density to: " + (maxValue - value + 1)); 
         }
     }
 }

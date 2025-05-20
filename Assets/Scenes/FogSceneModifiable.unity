@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 93905601}
   - component: {fileID: 93905600}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5149,7 +5149,7 @@ GameObject:
   - component: {fileID: 404926756}
   - component: {fileID: 404926755}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: 15
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9987,7 +9987,7 @@ GameObject:
   - component: {fileID: 492532915}
   - component: {fileID: 492532914}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: 13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14820,7 +14820,7 @@ GameObject:
   - component: {fileID: 556938778}
   - component: {fileID: 556938777}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: 14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19689,8 +19689,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fogParticleSystems:
   - {fileID: 1690646528}
+  - {fileID: 1921653728}
+  - {fileID: 1277350521}
+  - {fileID: 1718572034}
+  - {fileID: 1915405155}
+  - {fileID: 93905601}
   - {fileID: 759591225}
+  - {fileID: 1925562622}
+  - {fileID: 1090732600}
+  - {fileID: 1629093767}
+  - {fileID: 1549872655}
+  - {fileID: 2062063845}
   - {fileID: 492532915}
+  - {fileID: 556938778}
+  - {fileID: 404926756}
+  - {fileID: 1575612838}
+  - {fileID: 2086219817}
+  - {fileID: 652332912}
   grayscaleSlider: {fileID: 1577688352}
 --- !u!114 &587290838
 MonoBehaviour:
@@ -19706,8 +19721,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fogParticleSystems:
   - {fileID: 1690646528}
+  - {fileID: 1921653728}
+  - {fileID: 1277350521}
+  - {fileID: 1718572034}
+  - {fileID: 1915405155}
+  - {fileID: 93905601}
   - {fileID: 759591225}
+  - {fileID: 1925562622}
+  - {fileID: 1090732600}
+  - {fileID: 1629093767}
+  - {fileID: 1549872655}
+  - {fileID: 2062063845}
   - {fileID: 492532915}
+  - {fileID: 556938778}
+  - {fileID: 404926756}
+  - {fileID: 1575612838}
+  - {fileID: 2086219817}
+  - {fileID: 652332912}
   speedSlider: {fileID: 1788170856}
 --- !u!114 &587290839
 MonoBehaviour:
@@ -19799,7 +19829,7 @@ GameObject:
   - component: {fileID: 652332912}
   - component: {fileID: 652332911}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: 18
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24678,7 +24708,7 @@ GameObject:
   - component: {fileID: 759591225}
   - component: {fileID: 759591224}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: 7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29639,7 +29669,7 @@ GameObject:
   - component: {fileID: 1090732600}
   - component: {fileID: 1090732599}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: 9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34483,7 +34513,7 @@ GameObject:
   - component: {fileID: 1277350521}
   - component: {fileID: 1277350520}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39507,7 +39537,7 @@ GameObject:
   - component: {fileID: 1549872655}
   - component: {fileID: 1549872654}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: 11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44372,7 +44402,7 @@ GameObject:
   - component: {fileID: 1575612838}
   - component: {fileID: 1575612837}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: 16
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49280,7 +49310,7 @@ GameObject:
   - component: {fileID: 1629093767}
   - component: {fileID: 1629093766}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: 10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -54113,7 +54143,7 @@ GameObject:
   - component: {fileID: 1690646528}
   - component: {fileID: 1690646527}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58946,7 +58976,7 @@ GameObject:
   - component: {fileID: 1718572034}
   - component: {fileID: 1718572033}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63918,7 +63948,7 @@ GameObject:
   - component: {fileID: 1915405155}
   - component: {fileID: 1915405154}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68751,7 +68781,7 @@ GameObject:
   - component: {fileID: 1921653728}
   - component: {fileID: 1921653727}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73584,7 +73614,7 @@ GameObject:
   - component: {fileID: 1925562622}
   - component: {fileID: 1925562621}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: 8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78530,7 +78560,7 @@ GameObject:
   - component: {fileID: 2062063845}
   - component: {fileID: 2062063844}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: 12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83447,7 +83477,7 @@ GameObject:
   - component: {fileID: 2086219817}
   - component: {fileID: 2086219816}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: 17
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
