@@ -65,6 +65,7 @@ public class ExperienceLauncher : EditorWindow
             }
             Debug.Log("folder path: " + projectFolderPath);
             specificExperienceFolderPath = projectFolderPath + "/" + optionsScene[selectedOptionScene] + "_" + optionsControle[selectedOptionControle] + "_" + userName;
+            Debug.Log("experience folder path: " + specificExperienceFolderPath);
 
             if (!Directory.Exists(specificExperienceFolderPath))
             {
@@ -176,7 +177,7 @@ public class ExperienceLauncher : EditorWindow
         {
             case 0:
                 // Set ici les options pour la scene scenographique 
-                EditorPrefs.SetString("ExperienceConfigControle", "Imposé");
+                EditorPrefs.SetString("ExperienceConfigControle", "Impose");
                 break;
             case 1:
                 // Set ici les options pour la scene narrative 

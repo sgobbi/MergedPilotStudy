@@ -51,10 +51,11 @@ public class QuestionManagerSalome : MonoBehaviour
     {
         string timestamp = DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss");
         string safeUser = nomUtilisateur.Replace(" ", "_");
+        nomUtilisateur = GeneralExperienceManager.Instance.userName; 
         outputDirectory = GeneralExperienceManager.Instance.experienceFolderPath + "/QuestionnaireAnswers";
         outputFilePath = Path.Combine(outputDirectory, $"reponses_{safeUser}_{timestamp}.json");
 
-        if (GeneralExperienceManager.Instance.experienceControlType == "Scene imposee")
+        if (GeneralExperienceManager.Instance.experienceControlType == "Impose")
         {
             Debug.Log("finding the question file path, control type = " + GeneralExperienceManager.Instance.experienceControlType);
             switch (GeneralExperienceManager.Instance.experienceSceneType)
@@ -63,16 +64,19 @@ public class QuestionManagerSalome : MonoBehaviour
                 case "Scenographique":
                     Debug.Log("finding the question file path, scene type = " + GeneralExperienceManager.Instance.experienceSceneType);
                     questionFilePath = questionFolderPath + @"\QuestionsScenographiqueSceneImposee.json";
+                    Debug.Log("question file path intermediaire: " + questionFilePath); 
                     break;
 
                 case "Narratif":
                     Debug.Log("finding the question file path, scene type = " + GeneralExperienceManager.Instance.experienceSceneType);
                     questionFilePath = questionFolderPath + @"\QuestionsNarratifSceneImposee.json";
+                    Debug.Log("question file path intermediaire: " + questionFilePath); 
                     break;
 
                 case "Abstrait":
                     Debug.Log("finding the question file path, scene type = " + GeneralExperienceManager.Instance.experienceSceneType);
                     questionFilePath = questionFolderPath + @"\QuestionsAbstraitSceneImposee.json";
+                    Debug.Log("question file path intermediaire: " + questionFilePath); 
                     break;
             }
         }
@@ -84,16 +88,19 @@ public class QuestionManagerSalome : MonoBehaviour
                 case "Scenographique":
                     Debug.Log("finding the question file path, scene type = " + GeneralExperienceManager.Instance.experienceSceneType);
                     questionFilePath = questionFolderPath + @"\QuestionsScenographiqueSceneModifiable.json";
+                    Debug.Log("question file path intermediaire: " + questionFilePath); 
                     break;
 
                 case "Narratif":
                     Debug.Log("finding the question file path, scene type = " + GeneralExperienceManager.Instance.experienceSceneType);
                     questionFilePath = questionFolderPath + @"\QuestionsNarratifSceneModifiable.json";
+                    Debug.Log("question file path intermediaire: " + questionFilePath); 
                     break;
 
                 case "Abstrait":
                     Debug.Log("finding the question file path, scene type = " + GeneralExperienceManager.Instance.experienceSceneType);
                     questionFilePath = questionFolderPath + @"\QuestionsAbstraitSceneModifiable.json";
+                    Debug.Log("question file path intermediaire: " + questionFilePath); 
                     break;
             } 
         }

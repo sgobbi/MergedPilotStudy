@@ -148,6 +148,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f032588acf7c55489d7bd1b5c7257e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  experienceSceneType: 
+  experienceControlType: 
+  userName: 
+  experienceFolderPath: 
+  VRquestionsPath: 
 --- !u!4 &632283746
 Transform:
   m_ObjectHideFlags: 0
@@ -470,7 +475,7 @@ MonoBehaviour:
   m_InteractionManager: {fileID: 0}
   m_Colliders: []
   m_InteractionLayers:
-    m_Bits: 1
+    m_Bits: 4294967295
   m_DistanceCalculationMode: 1
   m_SelectMode: 1
   m_FocusMode: 1

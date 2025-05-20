@@ -65,7 +65,7 @@ public class GeneralExperienceManager : MonoBehaviour
         Debug.Log("Config: " + experienceSceneType + "  " + experienceControlType);
 
         // Build the scene queue based on config
-        if (experienceControlType == "Scene imposee")
+        if (experienceControlType == "Impose")
         {
             switch (experienceSceneType)
             {
@@ -75,12 +75,13 @@ public class GeneralExperienceManager : MonoBehaviour
                     break;
 
                 case "Narratif":
-                    sceneQueue.Enqueue("AmphiteatreSceneFixe");
+                    sceneQueue.Enqueue("AmphitheatreSceneFixe");
                     sceneQueue.Enqueue("Questionnaire");
                     break;
 
                 case "Abstrait":
-                    sceneQueue.Enqueue("Fog Scene");
+                    sceneQueue.Enqueue("FogSceneFixe");
+                    sceneQueue.Enqueue("Questionnaire");
                     break;
             }
         }
@@ -94,12 +95,12 @@ public class GeneralExperienceManager : MonoBehaviour
                     break;
 
                 case "Narratif":
-                    sceneQueue.Enqueue("AmphiteatreSceneModifiable");
+                    sceneQueue.Enqueue("AmphitheatreSceneModifiable");
                     sceneQueue.Enqueue("Questionnaire");
                     break;
 
                 case "Abstrait":
-                    sceneQueue.Enqueue("Fog Scene");
+                    sceneQueue.Enqueue("FogSceneModifiable");
                     sceneQueue.Enqueue("Questionnaire");
                     break;
             }
