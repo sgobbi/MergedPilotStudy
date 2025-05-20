@@ -14,6 +14,11 @@ public class GeneralExperienceManager : MonoBehaviour
 {
 
     public static GeneralExperienceManager Instance { get; private set; }
+    public string experienceSceneType;
+    public string experienceControlType;
+    public string userName;
+    public string experienceFolderPath;
+    public string VRquestionsPath; 
 
     private void Awake()
     {
@@ -32,30 +37,56 @@ public class GeneralExperienceManager : MonoBehaviour
     private void Start()
     {
 #if UNITY_EDITOR
-        string experienceSceneType = EditorPrefs.GetString("ExperienceConfigScene", "Default");
-        string experienceControlType = EditorPrefs.GetString("ExperienceConfigControle", "Default");
-        string userName = EditorPrefs.GetString("ExperienceUserName", "Unknown");
-        string folderPath = EditorPrefs.GetString("ExperienceFolderPath", Application.dataPath);
+        experienceSceneType = EditorPrefs.GetString("ExperienceConfigScene", "Default");
+        experienceControlType = EditorPrefs.GetString("ExperienceConfigControle", "Default");
+        userName = EditorPrefs.GetString("ExperienceUserName", "Unknown");
+        experienceFolderPath = EditorPrefs.GetString("ExperienceFolderPath", Application.dataPath);
 #endif
 
         Debug.Log("Starting experience for user: " + userName);
         Debug.Log("Config: " + experienceSceneType + "  " + experienceControlType);
 
         // Build the scene queue based on config
-        switch (experienceSceneType)
+        if (experienceControlType == "Scene imposee")
         {
-            case "Scenographique":
-                sceneQueue.Enqueue("Subway Scene");
-                break;
+            switch (experienceSceneType)
+            {
+                case "Scenographique":
+                    sceneQueue.Enqueue("SubwaySceneFixe");
+                    sceneQueue.Enqueue("Questionnaire");
+                    break;
 
-            case "Narratif":
-                sceneQueue.Enqueue("Amphiteatre");
-                break;
+                case "Narratif":
+                    sceneQueue.Enqueue("AmphiteatreSceneFixe");
+                    sceneQueue.Enqueue("Questionnaire");
+                    break;
 
-            case "Abstrait":
-                sceneQueue.Enqueue("Fog Scene");
-                break;
+                case "Abstrait":
+                    sceneQueue.Enqueue("Fog Scene");
+                    break;
+            }
         }
+        else
+        {
+           switch (experienceSceneType)
+            {
+                case "Scenographique":
+                    sceneQueue.Enqueue("SubwaySceneModifiable");
+                    sceneQueue.Enqueue("Questionnaire");
+                    break;
+
+                case "Narratif":
+                    sceneQueue.Enqueue("AmphiteatreSceneModifiable");
+                    sceneQueue.Enqueue("Questionnaire");
+                    break;
+
+                case "Abstrait":
+                    sceneQueue.Enqueue("Fog Scene");
+                    sceneQueue.Enqueue("Questionnaire");
+                    break;
+            } 
+        }
+        
 
         //LoadNextScene();
     }

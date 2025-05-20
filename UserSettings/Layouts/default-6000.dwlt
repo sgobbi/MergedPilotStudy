@@ -389,7 +389,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Skybox Amphi
+    - Assets
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -408,7 +408,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 316}
     m_SelectedIDs: f2d40000
     m_LastClickedID: 54514
-    m_ExpandedIDs: 00000000b6bc0000
+    m_ExpandedIDs: 00000000fcbf0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -437,7 +437,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000b6bc0000
+    m_ExpandedIDs: 00000000fcbf0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1175,9 +1175,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: -10.141815, y: -792.84717, z: -24.583008}
+    m_Target: {x: -6.929515, y: 1.5830578, z: -13.026538}
     speed: 2
-    m_Value: {x: -29.846926, y: 4.5761266, z: -33.96338}
+    m_Value: {x: -10.141815, y: -792.84717, z: -24.583008}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1223,13 +1223,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.13329694, y: 0.6124753, z: -0.11007948, w: -0.77347726}
+    m_Target: {x: 0.11459396, y: 0.010409652, z: 0.0024003785, w: 0.9950201}
     speed: 2
-    m_Value: {x: 0.023772368, y: 0.66235113, z: 0.0120278625, w: -0.7488635}
+    m_Value: {x: -0.13329694, y: 0.6124753, z: -0.110079475, w: -0.7734772}
   m_Size:
-    m_Target: 6.3828306
+    m_Target: 1.3187407
     speed: 2
-    m_Value: 11.134239
+    m_Value: 6.3828306
   m_Ortho:
     m_Target: 0
     speed: 2

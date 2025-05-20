@@ -19,16 +19,16 @@ public class QuestionManager : MonoBehaviour
     {
         public string utilisateur;
         public string question;
-        public int valeur;  // 1 à 8
+        public int valeur;  // 1 ï¿½ 8
         public string horodatage;
     }
 
-    [Header("Références UI")]
+    [Header("Rï¿½fï¿½rences UI")]
     public TextMeshProUGUI questionTextUI;
     public TextMeshProUGUI libelleMinUI;
     public TextMeshProUGUI libelleMaxUI;
 
-    [Header("Paramètres du questionnaire")]
+    [Header("Paramï¿½tres du questionnaire")]
     public string nomUtilisateur = "Participant";
     public Question[] questions;
 
@@ -69,7 +69,7 @@ public class QuestionManager : MonoBehaviour
         }
         else
         {
-            questionTextUI.text = "Merci pour vos réponses !";
+            questionTextUI.text = "Merci pour vos rï¿½ponses !";
             libelleMinUI.text = "";
             libelleMaxUI.text = "";
             SaveAnswersToFile();
@@ -91,12 +91,12 @@ public class QuestionManager : MonoBehaviour
     {
         isWaiting = true;
 
-        // Masquer les textes pour créer une pause visuelle
+        // Masquer les textes pour crï¿½er une pause visuelle
         questionTextUI.text = "";
         libelleMinUI.text = "";
         libelleMaxUI.text = "";
 
-        yield return new WaitForSeconds(1.5f); // Durée de la pause
+        yield return new WaitForSeconds(1.5f); // Durï¿½e de la pause
 
         ShowQuestion();
         isWaiting = false;
@@ -108,11 +108,11 @@ public class QuestionManager : MonoBehaviour
         {
             string json = JsonHelper.ToJson(answers.ToArray(), true);
             File.WriteAllText(outputFilePath, json);
-            Debug.Log("Réponses enregistrées dans : " + outputFilePath);
+            Debug.Log("Rï¿½ponses enregistrï¿½es dans : " + outputFilePath);
         }
         catch (Exception ex)
         {
-            Debug.LogError("Erreur d'enregistrement des réponses : " + ex.Message);
+            Debug.LogError("Erreur d'enregistrement des rï¿½ponses : " + ex.Message);
         }
     }
 }

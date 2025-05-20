@@ -1,0 +1,19 @@
+{
+  "questions": [
+    {
+      "questionText": "How immersive was the scene?",
+      "libelleMin": "Not at all",
+      "libelleMax": "Very immersive"
+    },
+    {
+      "questionText": "Did you feel in control of the experience?",
+      "libelleMin": "No control",
+      "libelleMax": "Full control"
+    },
+    {
+      "questionText": "Was the scene emotionally engaging?",
+      "libelleMin": "Not at all",
+      "libelleMax": "Very much"
+    }
+  ]
+}

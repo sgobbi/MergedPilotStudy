@@ -11,13 +11,14 @@ public class ExperienceLauncher : EditorWindow
     private int selectedOptionScene = 0;
     private int selectedOptionControle = 0;
     private string[] optionsScene = new string[] { "Scenographique", "Narratif", "Abstrait" };
-    private string[] optionsControle = new string[] { "Scene imposée", "Scene modulable" };
+    private string[] optionsControle = new string[] { "Scene imposee", "Scene modulable" };
     private string userName;
     private string projectFolderPath = "";
     private string specificExperienceFolderPath = "";
 
     private string GazeTrackerFolder = "";
     private string PositionTrackerFolder = "";
+    private string QuestionAnswersFolder = ""; 
 
 
     [MenuItem("Tools/Experience Launcher")]
@@ -48,7 +49,7 @@ public class ExperienceLauncher : EditorWindow
             if (!string.IsNullOrEmpty(path))
             {
                 projectFolderPath = path;
-                Debug.Log("folder path: " + projectFolderPath); 
+                Debug.Log("folder path: " + projectFolderPath);
             }
         }
         EditorGUILayout.EndHorizontal();
@@ -71,11 +72,13 @@ public class ExperienceLauncher : EditorWindow
             }
             else
             {
-                Debug.Log("Attention! Le dossier dans lequel vous voulez sauvegarder existe deja, les fichiers risquent d'etre ecrasés"); 
+                Debug.Log("Attention! Le dossier dans lequel vous voulez sauvegarder existe deja, les fichiers risquent d'etre ecrasés");
             }
 
             GazeTrackerFolder = specificExperienceFolderPath + "/GazeTrackerFiles";
             PositionTrackerFolder = specificExperienceFolderPath + "/VRPositionTrackerFiles";
+            QuestionAnswersFolder = specificExperienceFolderPath + "/QuestionnaireAnswers";
+            
 
             if (!Directory.Exists(GazeTrackerFolder))
             {
@@ -86,9 +89,23 @@ public class ExperienceLauncher : EditorWindow
             {
                 Directory.CreateDirectory(PositionTrackerFolder);
             }
+            if (!Directory.Exists(QuestionAnswersFolder))
+            {
+                Directory.CreateDirectory(QuestionAnswersFolder);
+            }
 
             LaunchSelectedExperience();
+
         }
+        GUILayout.Space(10);
+        GUI.enabled = Application.isPlaying && GeneralExperienceManager.Instance != null;
+
+        if (GUILayout.Button("Load Next Scene (Runtime)"))
+        {
+            GeneralExperienceManager.Instance.LoadNextScene();
+        }
+
+        GUI.enabled = true; // reset to avoid affecting other GUI elements
     }
 
     private void LaunchSelectedExperience()
