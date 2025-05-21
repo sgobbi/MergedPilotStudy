@@ -90,40 +90,6 @@ public class MyObjectSpawner : MonoBehaviour
                 spawnedObject.AddComponent<BoxCollider>(); // Or whatever makes sense for the shape
             }
 
-
-            /* Vector3 objectSize = Vector3.zero;
-            if (renderer != null)
-            {
-                // Get the size of the object
-                objectSize = renderer.bounds.size;
-                //Debug.Log("object renderer found, object size: " + objectSize + "  objectDesiredSize: " + localDesiredObjectSizes[index]);
-                float scaleFactor = localDesiredObjectSizes[index] / objectSize.y;
-                spawnedObject.transform.localScale = new Vector3 (scaleFactor, scaleFactor, scaleFactor);
-                float lowestPoint = renderer.bounds.min.y;
-                Vector3 adjustedPosition = spawnedObject.transform.position;
-                if (lowestPoint < 0)
-                {
-                    adjustedPosition.y -= lowestPoint; 
-                }
-                else
-                {
-                    adjustedPosition.y += lowestPoint; 
-                }
-                
-                spawnedObject.transform.position = adjustedPosition;
-            }
-            else if (collider != null)
-            {
-                objectSize = collider.bounds.size;
-                //Debug.Log("object collider found, object size: " + objectSize + "  objectDesiredSize: " + desiredObjectSizes[index]);
-                float scaleFactor = localDesiredObjectSizes[index] / objectSize.y;
-                spawnedObject.transform.localScale = new Vector3 (scaleFactor, scaleFactor, scaleFactor);
-            }
-            else
-            {
-                Debug.LogWarning("Renderer component not found on the prefab.");
-            } */
-
         }
         else
         {

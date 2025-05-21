@@ -88354,6 +88354,10 @@ PrefabInstance:
       propertyPath: m_MaxValue
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 4987050697169747506, guid: 86a5fa0671826e043aa6fa5ded6eddaa, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5210210342947941030, guid: 86a5fa0671826e043aa6fa5ded6eddaa, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

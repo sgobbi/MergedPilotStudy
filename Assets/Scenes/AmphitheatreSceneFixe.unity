@@ -1221,6 +1221,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4987050697169747506, guid: 86a5fa0671826e043aa6fa5ded6eddaa, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5210210342947941030, guid: 86a5fa0671826e043aa6fa5ded6eddaa, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1255,7 +1259,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8954811028120186836, guid: 86a5fa0671826e043aa6fa5ded6eddaa, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6
+      value: -9.35
       objectReference: {fileID: 0}
     - target: {fileID: 8954811028120186836, guid: 86a5fa0671826e043aa6fa5ded6eddaa, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2887,8 +2891,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 2, z: 1}
-  m_Center: {x: 0, y: 0.7, z: 0}
+  m_Size: {x: 1, y: 1.5, z: 1}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1001 &2136040848
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5484,8 +5488,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 30, y: 150, z: 20}
-  m_Center: {x: 10, y: 30, z: 10}
+  m_Size: {x: 30, y: 100, z: 20}
+  m_Center: {x: 10, y: 60, z: 10}
 --- !u!1 &8416272007143903916
 GameObject:
   m_ObjectHideFlags: 0
