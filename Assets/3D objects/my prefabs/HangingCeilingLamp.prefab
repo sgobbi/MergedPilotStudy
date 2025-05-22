@@ -272,7 +272,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4629980423177335994, guid: 815f43c029ff6e142ab34f056aa1d07e, type: 3}
       propertyPath: m_SpotAngle
-      value: 38.73076
+      value: 35.062725
       objectReference: {fileID: 0}
     - target: {fileID: 4629980423177335994, guid: 815f43c029ff6e142ab34f056aa1d07e, type: 3}
       propertyPath: m_Lightmapping
@@ -324,11 +324,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8812073128631297696, guid: 815f43c029ff6e142ab34f056aa1d07e, type: 3}
       propertyPath: m_Range
-      value: 50
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 8812073128631297696, guid: 815f43c029ff6e142ab34f056aa1d07e, type: 3}
       propertyPath: m_Intensity
-      value: 40
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
