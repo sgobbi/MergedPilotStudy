@@ -26,7 +26,7 @@ public class DeleteObject : MonoBehaviour
     {
         grabInteractable.selectEntered.RemoveListener(OnGrab);
         grabInteractable.selectExited.RemoveListener(OnRelease);
-        deleteAction.action.Disable();
+        //deleteAction.action.Disable();
     }
 
     private void OnGrab(SelectEnterEventArgs args)

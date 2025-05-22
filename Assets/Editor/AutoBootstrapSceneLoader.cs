@@ -18,27 +18,27 @@ public static class AutoBootstrapLoader
 
     private static void OnPlayModeChanged(PlayModeStateChange state)
     {
-        if (state == PlayModeStateChange.ExitingEditMode)
-        {
-            if (EditorSceneManager.GetActiveScene().path != bootstrapScenePath)
-            {
-                bool switchScene = EditorUtility.DisplayDialog(
-                    "Load Bootstrap Scene?",
-                    "Play Mode is about to start, but the active scene is not the Intro scene.\n\nDo you want to switch to the Intro scene?",
-                    "Yes", "No");
+        // if (state == PlayModeStateChange.ExitingEditMode)
+        // {
+        //     if (EditorSceneManager.GetActiveScene().path != bootstrapScenePath)
+        //     {
+        //         bool switchScene = EditorUtility.DisplayDialog(
+        //             "Load Bootstrap Scene?",
+        //             "Play Mode is about to start, but the active scene is not the Intro scene.\n\nDo you want to switch to the Intro scene?",
+        //             "Yes", "No");
 
-                if (switchScene)
-                {
-                    if (EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo())
-                    {
-                        EditorSceneManager.OpenScene(bootstrapScenePath);
-                        EditorApplication.isPlaying = false;
+        //         if (switchScene)
+        //         {
+        //             if (EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo())
+        //             {
+        //                 EditorSceneManager.OpenScene(bootstrapScenePath);
+        //                 EditorApplication.isPlaying = false;
 
-                        // Delay Play Mode so the user can hit Play again after switching
-                        Debug.Log("Bootstrap scene loaded. Press Play again to run.");
-                    }
-                }
-            }
-        }
+        //                 // Delay Play Mode so the user can hit Play again after switching
+        //                 Debug.Log("Bootstrap scene loaded. Press Play again to run.");
+        //             }
+        //         }
+        //     }
+        // }
     }
 }
