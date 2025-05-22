@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "E:\\MergedPilotStudy\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{27F58851-B209-5020-ED62-E21B5512062C}|Assembly-CSharp.csproj|e:\\mergedpilotstudy\\assets\\modulation\\miniatureobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{27F58851-B209-5020-ED62-E21B5512062C}|Assembly-CSharp.csproj|solutionrelative:assets\\modulation\\miniatureobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{27F58851-B209-5020-ED62-E21B5512062C}|Assembly-CSharp.csproj|e:\\mergedpilotstudy\\assets\\enregistrements\\retours\\scripts\\vrmovementplayerwithavatar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{27F58851-B209-5020-ED62-E21B5512062C}|Assembly-CSharp.csproj|solutionrelative:assets\\enregistrements\\retours\\scripts\\vrmovementplayerwithavatar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{27F58851-B209-5020-ED62-E21B5512062C}|Assembly-CSharp.csproj|E:\\MergedPilotStudy\\assets\\modulation\\miniaturemapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{27F58851-B209-5020-ED62-E21B5512062C}|Assembly-CSharp.csproj|solutionrelative:assets\\modulation\\miniaturemapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{27F58851-B209-5020-ED62-E21B5512062C}|Assembly-CSharp.csproj|e:\\mergedpilotstudy\\assets\\enregistrements\\retours\\scripts\\vrmovementrecorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{27F58851-B209-5020-ED62-E21B5512062C}|Assembly-CSharp.csproj|solutionrelative:assets\\enregistrements\\retours\\scripts\\vrmovementrecorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,27 +23,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "MiniatureObject.cs",
-              "DocumentMoniker": "E:\\MergedPilotStudy\\Assets\\Modulation\\MiniatureObject.cs",
-              "RelativeDocumentMoniker": "Assets\\Modulation\\MiniatureObject.cs",
-              "ToolTip": "E:\\MergedPilotStudy\\Assets\\Modulation\\MiniatureObject.cs",
-              "RelativeToolTip": "Assets\\Modulation\\MiniatureObject.cs",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAowEEAAAABAAAAAAAAAA==",
+              "Title": "VRMovementPlayerWithAvatar.cs",
+              "DocumentMoniker": "E:\\MergedPilotStudy\\Assets\\Enregistrements\\Retours\\Scripts\\VRMovementPlayerWithAvatar.cs",
+              "RelativeDocumentMoniker": "Assets\\Enregistrements\\Retours\\Scripts\\VRMovementPlayerWithAvatar.cs",
+              "ToolTip": "E:\\MergedPilotStudy\\Assets\\Enregistrements\\Retours\\Scripts\\VRMovementPlayerWithAvatar.cs",
+              "RelativeToolTip": "Assets\\Enregistrements\\Retours\\Scripts\\VRMovementPlayerWithAvatar.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAgwD4AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-21T20:04:27.15Z",
+              "WhenOpened": "2025-05-22T19:37:42.378Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "MiniatureMapper.cs",
-              "DocumentMoniker": "E:\\MergedPilotStudy\\Assets\\Modulation\\MiniatureMapper.cs",
-              "RelativeDocumentMoniker": "Assets\\Modulation\\MiniatureMapper.cs",
-              "ToolTip": "E:\\MergedPilotStudy\\Assets\\Modulation\\MiniatureMapper.cs",
-              "RelativeToolTip": "Assets\\Modulation\\MiniatureMapper.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADUAAAABAAAAAAAAAA==",
+              "Title": "VRMovementRecorder.cs",
+              "DocumentMoniker": "E:\\MergedPilotStudy\\Assets\\Enregistrements\\Retours\\Scripts\\VRMovementRecorder.cs",
+              "RelativeDocumentMoniker": "Assets\\Enregistrements\\Retours\\Scripts\\VRMovementRecorder.cs",
+              "ToolTip": "E:\\MergedPilotStudy\\Assets\\Enregistrements\\Retours\\Scripts\\VRMovementRecorder.cs",
+              "RelativeToolTip": "Assets\\Enregistrements\\Retours\\Scripts\\VRMovementRecorder.cs",
+              "ViewState": "AgIAAFYAAAAAAAAAAAAowHoAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-19T13:43:01.077Z",
+              "WhenOpened": "2025-05-22T19:31:52.212Z",
               "EditorCaption": ""
             }
           ]
