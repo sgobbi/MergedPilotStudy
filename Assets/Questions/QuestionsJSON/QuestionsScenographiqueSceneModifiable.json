@@ -1,19 +1,54 @@
 {
   "questions": [
-    {
-      "questionText": "Premiere question sceno modifiable?",
-      "libelleMin": "Not at all",
-      "libelleMax": "Very immersive"
+  {
+      "questionText": "Comment s’est déroule votre experience en realite virtuelle ? ?",
+      "libelleMin": "Pas bien",
+      "libelleMax": "Tres bien"
     },
     {
-      "questionText": "Did you feel in control of the experience?",
-      "libelleMin": "No control",
-      "libelleMax": "Full control"
+      "questionText": "Etes-vous satisfait de l’environnement que vous avez pu creer?",
+      "libelleMin": "Pas du tout",
+      "libelleMax": "Completement"
     },
     {
-      "questionText": "Was the scene emotionally engaging?",
-      "libelleMin": "Not at all",
-      "libelleMax": "Very much"
+      "questionText": "L’interface pour modifier la scène etait-il intuitif ",
+      "libelleMin": "Pas du tout",
+      "libelleMax": "Completement"
+    },
+    {
+      "questionText": "Vous-etes vous senti perdu pendant la phase de creation ?",
+      "libelleMin": "Pas du tout",
+      "libelleMax": "Completement"
+    },
+    {
+      "questionText": "Etiez-vous satisfait des elements proposes dans le catalogue ?",
+      "libelleMin": "Pas du tout",
+      "libelleMax": "Completement"
+    },
+    {
+      "questionText": "Le catalogue etait-il assez fourni pour vous pour recomposer l’espace pour rejouer ?",
+      "libelleMin": "Pas du tout",
+      "libelleMax": "Completement"
+    },
+    {
+      "questionText": "Est-ce que l’ajout d’objets dans la scene vous a permis de rejouer, de retravailler ?",
+      "libelleMin": "Pas du tout",
+      "libelleMax": "Completement"
+    },
+    {
+      "questionText": "Est-ce que la modifications des parametres de l’environnement vous a permis de rejouer/retravailler ?",
+      "libelleMin": "Pas du tout",
+      "libelleMax": "Completement"
+    },
+    {
+      "questionText": "Est-ce que vous auriez aime être plus guide pendant la phase de creation ?",
+      "libelleMin": "Pas du tout",
+      "libelleMax": "Completement"
+    },
+    {
+      "questionText": "Est ce que vous auriez aime avoir des propositions de la part du systeme pour vous guider ?",
+      "libelleMin": "Pas du tout",
+      "libelleMax": "Completement"
     }
   ]
 }
