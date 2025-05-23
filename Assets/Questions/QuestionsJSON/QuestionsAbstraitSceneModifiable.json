@@ -1,32 +1,32 @@
 {
   "questions": [
     {
-      "questionText": "Comment s’est déroule votre experience en realite virtuelle ? ?",
+      "questionText": "Comment s est deroule votre experience en realite virtuelle? ?",
       "libelleMin": "Pas bien",
       "libelleMax": "Tres bien"
     },
     {
-      "questionText": "Etes-vous satisfait de l’environnement que vous avez pu creer?",
+      "questionText": "Etes-vous satisfait de l environnement que vous avez pu creer?",
       "libelleMin": "Pas du tout",
       "libelleMax": "Completement"
     },
     {
-      "questionText": "L’interface pour modifier la scène etait-il intuitif ",
+      "questionText": "L interface pour modifier la scene etait-il intuitif",
       "libelleMin": "Pas du tout",
       "libelleMax": "Completement"
     },
     {
-      "questionText": "Vous-etes vous senti perdu pendant la phase de creation  ?",
+      "questionText": "Vous-etes vous senti perdu pendant la phase de creation?",
       "libelleMin": "Pas du tout",
       "libelleMax": "Completement"
     },
     {
-      "questionText": "Est-ce que la modifications des parametres de l’environnement vous a permis de rejouer/retravailler ?",
+      "questionText": "Est-ce que la modifications des parametres de l environnement vous a permis de rejouer/retravailler ?",
       "libelleMin": "Pas du tout",
       "libelleMax": "Completement"
     },
     {
-      "questionText": "Est-ce que vous auriez aime être plus guide pendant la phase de creation ?",
+      "questionText": "Est-ce que vous auriez aime etre plus guide pendant la phase de creation ?",
       "libelleMin": "Pas du tout",
       "libelleMax": "Completement"
     },

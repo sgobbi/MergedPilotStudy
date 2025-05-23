@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1752269094863413975}
   - component: {fileID: 1103265566115835276}
   - component: {fileID: 8356987894840607876}
+  - component: {fileID: 6698538861864050957}
   m_Layer: 0
   m_Name: chairmini
   m_TagString: Untagged
@@ -275,3 +276,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   realPrefab: {fileID: 3504391184006295447, guid: 6e60e504ca64ead47a3426fc975aa4cd, type: 3}
   mapper: {fileID: 0}
+--- !u!114 &6698538861864050957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 287093496289351711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e2db4f0d87c19d43a136b835f8206dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deleteAction: {fileID: 7476794779922474381, guid: 24c2a7c92890ddb449a9571086c65bb6, type: 3}

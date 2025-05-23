@@ -14,6 +14,10 @@ public class LightIntensityController : MonoBehaviour
     public float minIntensityLargeRoom;
     public float maxIntensityLargeRoom;       // Maximum allowed intensity
 
+    void Start()
+    {
+
+    } 
     void Update()
     {
         if (targetLights == null || targetLights.Length == 0)
