@@ -1,0 +1,86 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5958370532382675578
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5303358090482252865}
+  - component: {fileID: 7643130016890832315}
+  - component: {fileID: 6916877889113477376}
+  - component: {fileID: 2016450968917875489}
+  m_Layer: 0
+  m_Name: Dissolve Shape Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5303358090482252865
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5958370532382675578}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.7082951, y: -1.5941157, z: 7.30861}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7643130016890832315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5958370532382675578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a50a7babf6b26d44b9274dd93ee86cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shapePrefabs:
+  - {fileID: 4843746599326028216, guid: 6093fce020595104c89d061af57db716, type: 3}
+  - {fileID: 8411813703182350972, guid: 6a9ff54be3ddf744d83e9aa75df0cd33, type: 3}
+  - {fileID: 5777769982251444797, guid: c1fa9e3970c41c4409cfbd2344956092, type: 3}
+  - {fileID: 8810823004495865044, guid: b71afe3e871034c4382ac7cfb53ec0f4, type: 3}
+  - {fileID: 4865506200206665061, guid: b743237bdcde6af43bff79cfe34bde83, type: 3}
+  - {fileID: 2255036136603496258, guid: c6be50ede6320c2479d7c69f0e729099, type: 3}
+  poolSize: 30
+  spawnInterval: 1
+  spawnRadius: 5
+  player: {fileID: 0}
+--- !u!114 &6916877889113477376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5958370532382675578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f35011d80685e4143894085bcdb31873, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grayscaleSlider: {fileID: 0}
+  dissolveMaterial: {fileID: 2100000, guid: 7640ed9757335b04f97a6f3d1e569119, type: 2}
+--- !u!114 &2016450968917875489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5958370532382675578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ea1c091892227b47836b5a9e4e51264, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crowdDensitySlider: {fileID: 0}

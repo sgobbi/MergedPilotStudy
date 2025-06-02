@@ -10,8 +10,8 @@ public class ExperienceLauncher : EditorWindow
 {
     private int selectedOptionScene = 0;
     private int selectedOptionControle = 0;
-    private string[] optionsScene = new string[] { "Scenographique", "Narratif", "Abstrait" };
-    private string[] optionsControle = new string[] { "Scene imposee", "Scene modulable" };
+    private string[] optionsScene = new string[] { "Scenographique", "Narratif", "Abstrait", "TestMatisse" };
+    private string[] optionsControle = new string[] { "Scene imposee", "Scene modulable", "TestMatisse"};
     private string userName;
     private string projectFolderPath = "";
     private string specificExperienceFolderPath = "";

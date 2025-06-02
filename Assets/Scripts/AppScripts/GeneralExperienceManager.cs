@@ -65,46 +65,56 @@ public class GeneralExperienceManager : MonoBehaviour
         Debug.Log("Config: " + experienceSceneType + "  " + experienceControlType);
 
         // Build the scene queue based on config
-        if (experienceControlType == "Impose")
-        {
-            switch (experienceSceneType)
-            {
-                case "Scenographique":
-                    sceneQueue.Enqueue("SubwaySceneFixe");
-                    sceneQueue.Enqueue("Questionnaire");
-                    break;
+        // if (experienceControlType == "Impose")
+        // {
+        //     switch (experienceSceneType)
+        //     {
+        //         case "Scenographique":
+        //             sceneQueue.Enqueue("SubwaySceneFixe");
+        //             sceneQueue.Enqueue("Questionnaire");
+        //             break;
 
-                case "Narratif":
-                    sceneQueue.Enqueue("AmphitheatreSceneFixe");
-                    sceneQueue.Enqueue("Questionnaire");
-                    break;
+        //         case "Narratif":
+        //             sceneQueue.Enqueue("AmphitheatreSceneFixe");
+        //             sceneQueue.Enqueue("Questionnaire");
+        //             break;
 
-                case "Abstrait":
-                    sceneQueue.Enqueue("FogSceneFixe");
-                    sceneQueue.Enqueue("Questionnaire");
-                    break;
-            }
-        }
-        else
-        {
-            switch (experienceSceneType)
-            {
-                case "Scenographique":
-                    sceneQueue.Enqueue("SubwaySceneModifiable");
-                    sceneQueue.Enqueue("Questionnaire");
-                    break;
+        //         case "Abstrait":
+        //             sceneQueue.Enqueue("FogSceneFixe");
+        //             sceneQueue.Enqueue("Questionnaire");
+        //             break;
+        //     }
+        // }
+        // else if (experienceControlType == "TestMatisse")
+        // {
+        //     sceneQueue.Enqueue("SubwaySceneModifiable");
+        //     sceneQueue.Enqueue("AmphitheatreSceneModifiable");
+        //     sceneQueue.Enqueue("FogSceneFixe");
+        // }
+        // else
+        // {
+        //     switch (experienceSceneType)
+        //     {
+        //         case "Scenographique":
+        //             sceneQueue.Enqueue("SubwaySceneModifiable");
+        //             sceneQueue.Enqueue("Questionnaire");
+        //             break;
 
-                case "Narratif":
-                    sceneQueue.Enqueue("AmphitheatreSceneModifiable");
-                    sceneQueue.Enqueue("Questionnaire");
-                    break;
+        //         case "Narratif":
+        //             sceneQueue.Enqueue("AmphitheatreSceneModifiable");
+        //             sceneQueue.Enqueue("Questionnaire");
+        //             break;
 
-                case "Abstrait":
-                    sceneQueue.Enqueue("FogSceneModifiable");
-                    sceneQueue.Enqueue("Questionnaire");
-                    break;
-            }
-        }
+        //         case "Abstrait":
+        //             sceneQueue.Enqueue("FogSceneModifiable");
+        //             sceneQueue.Enqueue("Questionnaire");
+        //             break;
+        //     }
+        // }
+
+        sceneQueue.Enqueue("SubwaySceneModifiable");
+        sceneQueue.Enqueue("AmphitheatreSceneModifiable");
+        sceneQueue.Enqueue("FogSceneFixe");
 
         string timestamp = DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss");
         string ExplorationTimesFolder = experienceFolderPath + "/ExplorationTimes";
