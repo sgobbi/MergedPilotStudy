@@ -18,7 +18,7 @@ public static class AutoBootstrapLoader
 
     private static void OnPlayModeChanged(PlayModeStateChange state)
     {
-        if (state == PlayModeStateChange.ExitingEditMode)
+        /* if (state == PlayModeStateChange.ExitingEditMode)
         {
             if (EditorSceneManager.GetActiveScene().path != bootstrapScenePath)
             {
@@ -39,6 +39,6 @@ public static class AutoBootstrapLoader
                     }
                 }
             }
-        }
+        } */
     }
 }
